@@ -1,0 +1,38 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+#conatiner{
+    background-color: grey;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 400px;
+    box-shadow: 2px 2px 30px black;
+
+}
+input{
+    padding: 10px;
+    font-size: 2rem;
+    border-radius: 15px;
+    border: none;
+    outline: 0.5px solid black;
+    margin-bottom: 1rem;
+}
+#btnContainer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+#btnContainer>*{
+    width: 90px;
+    height: 60px;
+    border-radius: 15px;
+    border: none;
+   
+}
