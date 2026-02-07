@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="body">
+        <div class="header">
+            <h1 >Smart Event Dashboard</h1>
+        </div>
+        
+        <div id="container">
+            
+            <div id="main-event-add-container">
+                <h2>Add New Event</h2>
+                <form action="">
+                    <label for="eventTitle">Event Title:</label><br>
+                    <input type="text" id="eventTitle" required>
+                    <br><br>
+                    <label for="eventDate">Event Date:</label><br>
+                    <input type="date" id="eventDate" required>
+                    <br><br>
+                    <label for="eventCategory">Category:</label><br>
+                    <select name="" id="eventCategory" required>
+                        <option value="Conference">Conference</option>
+                        <option value="Workshop">Workshop</option>
+                        <option value="Meetup">Meetup</option>
+                        <option value="Webinar">Webinar</option>
+                        <option value="Social">Social</option>
+                    </select>
+                    <br><br>
+                    <label for="eventDescription">Description:</label><br>
+                    <textarea name="" id="eventDescription" required></textarea>
+                    
+                    <br><br>
+                    <button type="submit" id="addEvent">Add Event</button><br>
+
+                </form>
+            </div>
+
+            <div id="event-card-container">
+                <h2 >MY EVENTS</h2>
+                <div id="bttn-container">
+                    <button id="clear-event-btn">Clear All Events</button>
+                    <button id="add-sample-event">Add Sample Events</button>
+                </div>
+                <div id="all-events-container">
+                    No Events Yet.Enter your first event
+                </div>
+            </div>
+        </div>
+
+        <div id="key-pressed-container">
+            <h2 >DOM Manipulation demo</h2>
+            <input type="text" id="key-pressed-input" placeholder="You pressed:" disabled>
+        </div>
+    </div>
+
+        <script src="script.js"></script>
+    
+</body>
+</html>
