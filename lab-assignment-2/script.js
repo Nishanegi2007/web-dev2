@@ -7,8 +7,8 @@ let form = document.querySelector('form')
             let clearallevents = document.querySelector('#clear-event-btn')
             let keypressedcontainer = document.querySelector('#key-pressed-container .value')
             let keypressedinput = document.querySelector('#key-pressed-input')
-            let delbtn=document.querySelector('#delbtn')
-            let eventcard=document.querySelector('.event-card')
+            
+            let addallevents = document.querySelector('#add-sample-event')
 
 
             function addEventFunction(event){
@@ -20,7 +20,7 @@ let form = document.querySelector('form')
                 }
                 
                 let card = document.createElement('div')
-                card.innerHTML = `<button id='delbtn'>✕</button>
+                card.innerHTML = `<button class='delbtn'>✕</button>
                                     <h4>${EventTitle.value}</h4>
                                     <span><strong>📅 Date:</strong> ${EventDate.value}</span>
                                     <span><strong>🏷️ Category:</strong> ${EventCategory.value}</span>
@@ -42,13 +42,26 @@ let form = document.querySelector('form')
             }
 
             function cardDelelteFunction(event){
-                if(event.target.id === 'delbtn'){
-                    event.target.parentElement.remove()
-                }
-                
-                
+                if(!event.target.classList.contains('delbtn')) return;
+                let cardEl = event.target.closest('.event-card');
+                if(!cardEl) return;
+                // hide card instead of removing it
+                cardEl.style.display = 'none';
+                // save reference to hidden card for restoration
+                if(!deletedCards.includes(cardEl)) deletedCards.push(cardEl);
             }
 
+            let originalHTML = alleventscontainer.innerHTML;
+            // store deleted card nodes for restoration
+            let deletedCards = [];
+            function addEventAgainFunction(event){
+                if(deletedCards.length === 0) return;
+                deletedCards.forEach(card => card.style.display = '');
+                deletedCards = [];
+            }
+
+            // attach restore listener to the restore button
+            addallevents.addEventListener('click', addEventAgainFunction)
             alleventscontainer.addEventListener('click',cardDelelteFunction);
            
             document.addEventListener("keydown", keyDOwnFunction);
