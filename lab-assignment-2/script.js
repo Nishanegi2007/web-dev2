@@ -67,7 +67,7 @@ let form = document.querySelector('form')
         
 
     
-            addsamplevents.addEventListener('click', addSampleEventsFunction)
+            addsamplevents.addEventListener('click', addSampleEventsFunction);
             alleventscontainer.addEventListener('click',cardDelelteFunction);
            
             document.addEventListener("keydown", keyDOwnFunction);
