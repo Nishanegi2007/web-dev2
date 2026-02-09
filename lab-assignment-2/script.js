@@ -8,7 +8,7 @@ let form = document.querySelector('form')
             let keypressedcontainer = document.querySelector('#key-pressed-container .value')
             let keypressedinput = document.querySelector('#key-pressed-input')
             
-            let addallevents = document.querySelector('#add-sample-event')
+            let addsamplevents = document.querySelector('#add-sample-event')
 
 
             function addEventFunction(event){
@@ -49,19 +49,25 @@ let form = document.querySelector('form')
                 cardEl.style.display = 'none';
                 // save reference to hidden card for restoration
                 if(!deletedCards.includes(cardEl)) deletedCards.push(cardEl);
+
+            }
+            function addSampleEventsFunction(){
+                let sample = document.createElement('div')
+                sample.classList.add('event-card')
+                sample.innerHTML=`<button class='delbtn'>✕</button>
+                                    <h4>Sample Event</h4>
+                                    <span><strong>📅 Date:</strong> 2024-12-31</span>
+                                    <span><strong>🏷️ Category:</strong> Sample Category</span>
+                                    <p><strong>📝 Description:</strong><br>This is a sample event description.</p>`
+                alleventscontainer.append(sample);
             }
 
-            let originalHTML = alleventscontainer.innerHTML;
-            // store deleted card nodes for restoration
-            let deletedCards = [];
-            function addEventAgainFunction(event){
-                if(deletedCards.length === 0) return;
-                deletedCards.forEach(card => card.style.display = '');
-                deletedCards = [];
-            }
 
-            // attach restore listener to the restore button
-            addallevents.addEventListener('click', addEventAgainFunction)
+            
+        
+
+    
+            addsamplevents.addEventListener('click', addSampleEventsFunction)
             alleventscontainer.addEventListener('click',cardDelelteFunction);
            
             document.addEventListener("keydown", keyDOwnFunction);
